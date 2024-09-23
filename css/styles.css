@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --primary-color: #00ffff;
+  --secondary-color: #ff00ff;
+  --background-color: #120458;
+  --text-color: #ffffff;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+canvas {
+  display: block;
+}
+
+#startScreen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #a30c23 0%, #120458 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+}
+
+.start-content {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--secondary-color);
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--secondary-color);
+  }
+  to {
+    box-shadow: 0 0 40px var(--primary-color), 0 0 80px var(--secondary-color);
+  }
+}
+
+#startScreen h1 {
+  font-size: 4em;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-shadow: 3px 3px 0px var(--secondary-color);
+  letter-spacing: 3px;
+}
+
+#startButton {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: 0 0 10px var(--secondary-color);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#startButton:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--primary-color);
+}
+
+#message, #timer, #deathCounter, #velocidad {
+  position: absolute;
+  font-size: 1.2em;
+  color: var(--text-color);
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 10px var(--primary-color);
+}
+
+#message {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+  font-size: 2em;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px 40px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-50%, -50%) scale(1.05); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+#timer {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#deathCounter {
+  top: 20px;
+  right: 20px;
+}
+
+#velocidad {
+  top: 20px;
+  left: 20px;
+}
+
+@media (max-width: 768px) {
+  #startScreen h1 {
+    font-size: 2.5em;
+  }
+
+  #startButton {
+    font-size: 1.2em;
+  }
+
+  #message, #timer, #deathCounter, #velocidad {
+    font-size: 1em;
+  }
+}
